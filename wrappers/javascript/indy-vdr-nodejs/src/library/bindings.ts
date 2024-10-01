@@ -23,6 +23,9 @@ export const nativeBindings = {
   indy_vdr_version: [FFI_STRING, []],
   indy_vdr_get_current_error: [FFI_ERROR_CODE, [FFI_STRING_PTR]],
 
+  // cache
+  indy_vdr_set_ledger_txn_cache: [FFI_ERROR_CODE, [FFI_INT64, FFI_INT64, FFI_STRING]],
+
   // requests
   indy_vdr_build_acceptance_mechanisms_request: [
     FFI_ERROR_CODE,
