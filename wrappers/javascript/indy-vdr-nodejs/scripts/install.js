@@ -1,5 +1,5 @@
 const { execSync } = require('node:child_process')
-const { arch, platform: osPlatform } = require('os')
+const { arch, platform: osPlatform } = require('node:os')
 
 const archTable = {
   x64: 'x86_64',
@@ -8,7 +8,7 @@ const archTable = {
 
 const platform = osPlatform()
 const targetPlatform = platform === 'win32' ? 'windows' : platform
-const targetArchitecture = platform == 'darwin' ? 'universal' : archTable[arch]
+const targetArchitecture = platform === 'darwin' ? 'universal' : archTable[arch]
 
 const command = `node-pre-gyp install --target_arch=${targetArchitecture} --target_platform=${targetPlatform}`
 

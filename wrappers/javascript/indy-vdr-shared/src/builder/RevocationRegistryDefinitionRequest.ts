@@ -1,6 +1,6 @@
-import type { WriteRequestResultTxnBase, WriteRequestResponse } from '../types'
+import type { WriteRequestResponse, WriteRequestResultTxnBase } from '../types'
 
-import { indyVdr, IndyVdrRequest } from '../indyVdr'
+import { IndyVdrRequest, indyVdr } from '../indyVdr'
 
 export type RevocationRegistryDefinitionRequestOptions = {
   submitterDid: string
@@ -27,7 +27,8 @@ type RevocationRegistryDefinitionValue = {
   tailsHash: string
   tailsLocation: string
 }
-interface RevocationRegistryDefinitionResultTxn extends WriteRequestResultTxnBase {
+interface RevocationRegistryDefinitionResultTxn
+  extends WriteRequestResultTxnBase {
   type: '113'
   data: {
     id: string
@@ -38,7 +39,8 @@ interface RevocationRegistryDefinitionResultTxn extends WriteRequestResultTxnBas
   }
 }
 
-export type RevocationRegistryDefinitionResponse = WriteRequestResponse<RevocationRegistryDefinitionResultTxn>
+export type RevocationRegistryDefinitionResponse =
+  WriteRequestResponse<RevocationRegistryDefinitionResultTxn>
 
 export class RevocationRegistryDefinitionRequest extends IndyVdrRequest<RevocationRegistryDefinitionResponse> {
   public constructor(options: RevocationRegistryDefinitionRequestOptions) {

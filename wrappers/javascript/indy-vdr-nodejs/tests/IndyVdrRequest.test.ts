@@ -1,8 +1,7 @@
 import type { IndyVdrRequest } from '@hyperledger/indy-vdr-nodejs'
 
-import { DID, SCHEMA_ID } from './utils'
-
 import { GetSchemaRequest } from '@hyperledger/indy-vdr-nodejs'
+import { DID, SCHEMA_ID } from './utils'
 
 describe('IndyVdrRequest', () => {
   let request: IndyVdrRequest
@@ -40,7 +39,7 @@ describe('IndyVdrRequest', () => {
         'dest:J6nTnUo3YLayzc2GUUctb1',
         'type:107',
         'protocolVersion:2',
-      ])
+      ]),
     )
   })
 
@@ -55,12 +54,16 @@ describe('IndyVdrRequest', () => {
 
   test('Set request multi signature', () => {
     const signature = new Uint8Array([0])
-    expect(request.setMultiSignature({ signature, identifier: DID })).toBe(void 0)
+    expect(request.setMultiSignature({ signature, identifier: DID })).toBe(
+      void 0,
+    )
   })
 
   test('Set request transaction author agreement acceptance', () => {
     expect(
-      request.setTransactionAuthorAgreementAcceptance({ acceptance: { mechanism: 'foo', taaDigest: 'foo', time: 123 } })
+      request.setTransactionAuthorAgreementAcceptance({
+        acceptance: { mechanism: 'foo', taaDigest: 'foo', time: 123 },
+      }),
     ).toBe(void 0)
   })
 })

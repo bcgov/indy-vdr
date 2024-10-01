@@ -1,6 +1,10 @@
-import type { GetRequestResultFoundBase, GetRequestResultNotFoundBase, GetRequestResponse } from '../types'
+import type {
+  GetRequestResponse,
+  GetRequestResultFoundBase,
+  GetRequestResultNotFoundBase,
+} from '../types'
 
-import { indyVdr, IndyVdrRequest } from '../indyVdr'
+import { IndyVdrRequest, indyVdr } from '../indyVdr'
 
 export type GetAcceptanceMechanismsRequestOptions = {
   timestamp?: Date
@@ -17,7 +21,8 @@ interface GetAcceptanceMechanismsFoundResult extends GetRequestResultFoundBase {
   }
 }
 
-interface GetAcceptanceMechanismsNotFoundResult extends GetRequestResultNotFoundBase {
+interface GetAcceptanceMechanismsNotFoundResult
+  extends GetRequestResultNotFoundBase {
   type: '7'
   data: null
 }

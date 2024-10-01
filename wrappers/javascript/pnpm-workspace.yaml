@@ -1,0 +1,4 @@
+packages:
+  - indy-vdr-shared
+  - indy-vdr-react-native
+  - indy-vdr-nodejs

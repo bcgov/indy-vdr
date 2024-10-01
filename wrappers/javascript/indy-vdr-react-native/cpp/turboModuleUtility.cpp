@@ -116,7 +116,7 @@ uint8_t jsiToValue(jsi::Runtime &rt, jsi::Object &options, const char *name,
                    bool optional) {
   jsi::Value value = options.getProperty(rt, name);
   if ((value.isNull() || value.isUndefined()) && optional)
-    return 0;
+    return -1;
 
   if (value.isNumber())
     return value.asNumber();
@@ -143,7 +143,7 @@ int64_t jsiToValue(jsi::Runtime &rt, jsi::Object &options, const char *name,
                    bool optional) {
   jsi::Value value = options.getProperty(rt, name);
   if ((value.isNull() || value.isUndefined()) && optional)
-    return 0;
+    return -1;
 
   if (value.isNumber())
     return value.asNumber();
@@ -169,7 +169,7 @@ int32_t jsiToValue(jsi::Runtime &rt, jsi::Object &options, const char *name,
                    bool optional) {
   jsi::Value value = options.getProperty(rt, name);
   if ((value.isNull() || value.isUndefined()) && optional)
-    return 0;
+    return -1;
 
   if (value.isNumber())
     return value.asNumber();

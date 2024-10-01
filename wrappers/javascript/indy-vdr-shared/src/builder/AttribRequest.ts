@@ -1,4 +1,4 @@
-import type { WriteRequestResultTxnBase, WriteRequestResponse } from '../types'
+import type { WriteRequestResponse, WriteRequestResultTxnBase } from '../types'
 
 import { IndyVdrRequest, indyVdr } from '../indyVdr'
 

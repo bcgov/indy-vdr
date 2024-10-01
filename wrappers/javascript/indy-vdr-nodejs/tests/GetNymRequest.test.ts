@@ -1,13 +1,11 @@
-import type { GetNymResponse, IndyVdrPool } from '@hyperledger/indy-vdr-nodejs'
-
-import { DID, setupPool } from './utils'
+import type { GetNymResponse } from '@hyperledger/indy-vdr-nodejs'
 
 import { GetNymRequest } from '@hyperledger/indy-vdr-nodejs'
 
-describe('GetNymRequest', () => {
-  let pool: IndyVdrPool
+import { DID, setupPool } from './utils'
 
-  beforeAll(() => (pool = setupPool()))
+describe('GetNymRequest', () => {
+  const pool = setupPool()
 
   test('Submit request', async () => {
     const request = new GetNymRequest({ dest: DID })

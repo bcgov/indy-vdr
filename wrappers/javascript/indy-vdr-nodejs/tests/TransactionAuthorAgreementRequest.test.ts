@@ -1,13 +1,9 @@
-import type { IndyVdrPool } from '@hyperledger/indy-vdr-nodejs'
+import { TransactionAuthorAgreementRequest } from '@hyperledger/indy-vdr-nodejs'
 
 import { DID, setupPool } from './utils'
 
-import { TransactionAuthorAgreementRequest } from '@hyperledger/indy-vdr-nodejs'
-
 describe('TransactionAuthorAgreementRequest', () => {
-  let pool: IndyVdrPool
-
-  beforeAll(() => (pool = setupPool()))
+  const pool = setupPool()
 
   test('Submit request', async () => {
     const request = new TransactionAuthorAgreementRequest({
@@ -15,6 +11,8 @@ describe('TransactionAuthorAgreementRequest', () => {
       version: 'TODO',
     })
 
-    await expect(pool.submitRequest(request)).rejects.toThrowError('MissingSignature()')
+    await expect(pool.submitRequest(request)).rejects.toThrowError(
+      'MissingSignature()',
+    )
   })
 })

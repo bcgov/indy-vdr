@@ -36,7 +36,6 @@ android.iml
 
 # node.js
 node_modules/
-yarn-error.log
 
 # BUCK
 buck-out/

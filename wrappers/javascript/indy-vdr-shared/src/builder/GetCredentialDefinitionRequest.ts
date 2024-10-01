@@ -1,6 +1,10 @@
-import type { GetRequestResponse, GetRequestResultFoundBase, GetRequestResultNotFoundBase } from '../types'
+import type {
+  GetRequestResponse,
+  GetRequestResultFoundBase,
+  GetRequestResultNotFoundBase,
+} from '../types'
 
-import { indyVdr, IndyVdrRequest } from '../indyVdr'
+import { IndyVdrRequest, indyVdr } from '../indyVdr'
 
 export type GetCredentialDefinitionRequestOptions = {
   submitterDid?: string
@@ -20,7 +24,8 @@ interface GetCredentialDefinitionFoundResult extends GetRequestResultFoundBase {
   }
 }
 
-interface GetCredentialDefinitionNotFoundResult extends GetRequestResultNotFoundBase {
+interface GetCredentialDefinitionNotFoundResult
+  extends GetRequestResultNotFoundBase {
   type: '108'
   signature_type: 'CL'
   tag: string

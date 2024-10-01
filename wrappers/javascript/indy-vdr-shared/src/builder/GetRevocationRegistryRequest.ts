@@ -1,6 +1,10 @@
-import type { GetRequestResultFoundBase, GetRequestResultNotFoundBase, GetRequestResponse } from '../types'
+import type {
+  GetRequestResponse,
+  GetRequestResultFoundBase,
+  GetRequestResultNotFoundBase,
+} from '../types'
 
-import { indyVdr, IndyVdrRequest } from '../indyVdr'
+import { IndyVdrRequest, indyVdr } from '../indyVdr'
 
 export type GetRevocationRegistryRequestOptions = {
   submitterDid?: string
@@ -22,7 +26,8 @@ interface GetRevocationRegistryFoundResult extends GetRequestResultFoundBase {
   revocRegDefId: string
 }
 
-interface GetRevocationRegistryNotFoundResult extends GetRequestResultNotFoundBase {
+interface GetRevocationRegistryNotFoundResult
+  extends GetRequestResultNotFoundBase {
   type: '116'
   data: null
   revocRegDefId: string

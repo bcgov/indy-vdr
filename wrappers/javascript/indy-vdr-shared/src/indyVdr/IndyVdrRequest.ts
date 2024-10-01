@@ -17,9 +17,15 @@ export type RequestSetEndorserOptions = {
   endorser: string
 }
 
-export type RequestResponseType<Request> = Request extends IndyVdrRequest<infer ResponseType> ? ResponseType : never
+export type RequestResponseType<Request> = Request extends IndyVdrRequest<
+  infer ResponseType
+>
+  ? ResponseType
+  : never
 
-export class IndyVdrRequest<ResponseType extends Record<string, unknown> = Record<string, unknown>> {
+export class IndyVdrRequest<
+  ResponseType extends Record<string, unknown> = Record<string, unknown>,
+> {
   private _handle: number
 
   // We need to use the generic that is passed to this class, otherwise TypeScript will lose the generic type passed to IndyVdrRequest
@@ -49,15 +55,23 @@ export class IndyVdrRequest<ResponseType extends Record<string, unknown> = Recor
   }
 
   public setMultiSignature(options: RequestSetMultiSignatureOptions): void {
-    indyVdr.requestSetMultiSignature({ requestHandle: this.handle, ...options })
+    indyVdr.requestSetMultiSignature({
+      requestHandle: this.handle,
+      ...options,
+    })
   }
 
   public setSignature(options: RequestSetSignatureOptions): void {
     indyVdr.requestSetSignature({ requestHandle: this.handle, ...options })
   }
 
-  public setTransactionAuthorAgreementAcceptance(options: RequestSetTxnAuthorAgreementAcceptanceOptions): void {
-    indyVdr.requestSetTxnAuthorAgreementAcceptance({ requestHandle: this.handle, ...options })
+  public setTransactionAuthorAgreementAcceptance(
+    options: RequestSetTxnAuthorAgreementAcceptanceOptions,
+  ): void {
+    indyVdr.requestSetTxnAuthorAgreementAcceptance({
+      requestHandle: this.handle,
+      ...options,
+    })
   }
 
   public free(): void {

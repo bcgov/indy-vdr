@@ -1,6 +1,6 @@
 {
   "name": "@hyperledger/indy-vdr-react-native",
-  "version": "0.2.0-dev.6",
+  "version": "0.3.0-dev.0",
   "license": "Apache-2.0",
   "description": "React Native wrapper for Indy Vdr",
   "source": "src/index",
@@ -34,22 +34,21 @@
     "package.json"
   ],
   "scripts": {
-    "build": "yarn clean && yarn compile",
+    "build": "pnpm clean && pnpm compile",
     "clean": "rimraf -rf ./build",
     "compile": "tsc -p tsconfig.build.json",
     "install": "node-pre-gyp install"
   },
   "dependencies": {
-    "@hyperledger/indy-vdr-shared": "0.2.0-dev.6",
+    "@hyperledger/indy-vdr-shared": "workspace:*",
     "@mapbox/node-pre-gyp": "^1.0.10"
   },
   "devDependencies": {
-    "@types/react": "^16.9.19",
-    "@types/react-native": "^0.67.0",
-    "prettier": "2.6.2",
-    "react": "17.0.2",
-    "react-native": "0.67.2",
-    "typescript": "~4.9.4"
+    "@types/react": "^18.2.6",
+    "react": "18.2.0",
+    "react-native": "0.74.2",
+    "rimraf": "^5.0.7",
+    "typescript": "~5.4.5"
   },
   "peerDependencies": {
     "react": ">= 16",
@@ -58,7 +57,7 @@
   "binary": {
     "module_name": "indy_vdr",
     "module_path": "native",
-    "remote_path": "v0.4.0",
+    "remote_path": "v0.4.3",
     "host": "https://github.com/hyperledger/indy-vdr/releases/download/",
     "package_name": "library-ios-android.tar.gz"
   }

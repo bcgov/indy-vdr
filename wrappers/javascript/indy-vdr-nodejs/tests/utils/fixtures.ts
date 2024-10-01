@@ -1,4 +1,4 @@
-import path from 'path'
+import path from 'node:path'
 
 export const genesisTxnPath = path.join(__dirname, '../../../genesis.txn')
 export const DID = 'PqdUtwWhuX4GWRa58WSdvn'

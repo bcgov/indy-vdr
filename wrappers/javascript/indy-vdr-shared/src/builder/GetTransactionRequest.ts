@@ -1,6 +1,10 @@
-import type { GetRequestResultFoundBase, GetRequestResultNotFoundBase, GetRequestResponse } from '../types'
+import type {
+  GetRequestResponse,
+  GetRequestResultFoundBase,
+  GetRequestResultNotFoundBase,
+} from '../types'
 
-import { indyVdr, IndyVdrRequest } from '../indyVdr'
+import { IndyVdrRequest, indyVdr } from '../indyVdr'
 
 export type GetTransactionRequestOptions = {
   submitterDid?: string
@@ -32,7 +36,10 @@ interface GetTransactionNotFoundResult extends GetRequestResultNotFoundBase {
   data: null
 }
 
-export type GetTransactionResponse = GetRequestResponse<GetTransactionFoundResult, GetTransactionNotFoundResult>
+export type GetTransactionResponse = GetRequestResponse<
+  GetTransactionFoundResult,
+  GetTransactionNotFoundResult
+>
 
 export class GetTransactionRequest extends IndyVdrRequest<GetTransactionResponse> {
   public constructor(options: GetTransactionRequestOptions) {

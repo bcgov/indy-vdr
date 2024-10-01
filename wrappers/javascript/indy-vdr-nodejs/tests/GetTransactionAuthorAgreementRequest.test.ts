@@ -1,17 +1,16 @@
-import type { GetTransactionAuthorAgreementResponse, IndyVdrPool } from '@hyperledger/indy-vdr-nodejs'
-
-import { setupPool } from './utils'
+import type { GetTransactionAuthorAgreementResponse } from '@hyperledger/indy-vdr-nodejs'
 
 import { GetTransactionAuthorAgreementRequest } from '@hyperledger/indy-vdr-nodejs'
 
-describe('GetTransactionAuthorAgreementRequest', () => {
-  let pool: IndyVdrPool
+import { setupPool } from './utils'
 
-  beforeAll(() => (pool = setupPool()))
+describe('GetTransactionAuthorAgreementRequest', () => {
+  const pool = setupPool()
 
   test('Submit request', async () => {
     const request = new GetTransactionAuthorAgreementRequest({})
-    const response: GetTransactionAuthorAgreementResponse = await pool.submitRequest(request)
+    const response: GetTransactionAuthorAgreementResponse =
+      await pool.submitRequest(request)
 
     expect(response).toMatchObject({
       op: 'REPLY',

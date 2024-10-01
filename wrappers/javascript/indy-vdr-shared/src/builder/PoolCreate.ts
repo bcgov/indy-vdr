@@ -1,4 +1,4 @@
-import { indyVdr, IndyVdrPool } from '../indyVdr'
+import { IndyVdrPool, indyVdr } from '../indyVdr'
 
 export type PoolCreateOptions = {
   parameters: {

@@ -1,4 +1,4 @@
-import { PoolCreate } from '@hyperledger/indy-vdr-shared'
+import { PoolCreate } from '@hyperledger/indy-vdr-nodejs'
 
 import { genesisTxnPath } from './fixtures'
 

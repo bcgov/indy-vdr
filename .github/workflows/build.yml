@@ -241,6 +241,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
       - name: Set up Node.JS 18.x
         uses: actions/setup-node@v4
         with:
@@ -253,19 +257,16 @@ jobs:
           name: library-linux-x86_64
 
       - name: Install dependencies
-        run: yarn install
+        run: pnpm install
 
       - name: Build
-        run: yarn build
+        run: pnpm build
 
       - name: Lint
-        run: yarn lint
-
-      - name: Check format
-        run: yarn check-format
+        run: pnpm style:check
 
       - name: Check types
-        run: yarn check-types
+        run: pnpm types:check
 
       - name: Run local node pool
         run: |
@@ -280,7 +281,7 @@ jobs:
         env:
           # binary is downloaded to root of repository
           LIB_INDY_VDR_PATH: ../../../
-        run: yarn test
+        run: pnpm test
 
       - name: Publish JavaScript Wrapper
         if: |

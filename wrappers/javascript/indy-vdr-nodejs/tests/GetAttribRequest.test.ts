@@ -1,13 +1,11 @@
-import type { GetAttribResponse, IndyVdrPool } from '@hyperledger/indy-vdr-nodejs'
-
-import { DID, setupPool } from './utils'
+import type { GetAttribResponse } from '@hyperledger/indy-vdr-nodejs'
 
 import { GetAttribRequest } from '@hyperledger/indy-vdr-nodejs'
 
-describe('GetAttribRequest', () => {
-  let pool: IndyVdrPool
+import { DID, setupPool } from './utils'
 
-  beforeAll(() => (pool = setupPool()))
+describe('GetAttribRequest', () => {
+  const pool = setupPool()
 
   test('Submit request', async () => {
     const request = new GetAttribRequest({ targetDid: DID, raw: 'endpoint' })

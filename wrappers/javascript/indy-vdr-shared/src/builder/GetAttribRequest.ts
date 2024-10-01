@@ -1,6 +1,10 @@
-import type { GetRequestResultFoundBase, GetRequestResultNotFoundBase, GetRequestResponse } from '../types'
+import type {
+  GetRequestResponse,
+  GetRequestResultFoundBase,
+  GetRequestResultNotFoundBase,
+} from '../types'
 
-import { indyVdr, IndyVdrRequest } from '../indyVdr'
+import { IndyVdrRequest, indyVdr } from '../indyVdr'
 
 export type GetAttribRequestOptions = {
   submitterDid?: string
@@ -26,7 +30,10 @@ interface GetAttribNotFoundResult extends GetRequestResultNotFoundBase {
   raw?: string
 }
 
-export type GetAttribResponse = GetRequestResponse<GetAttribFoundResult, GetAttribNotFoundResult>
+export type GetAttribResponse = GetRequestResponse<
+  GetAttribFoundResult,
+  GetAttribNotFoundResult
+>
 
 export class GetAttribRequest extends IndyVdrRequest<GetAttribResponse> {
   public constructor(options: GetAttribRequestOptions) {

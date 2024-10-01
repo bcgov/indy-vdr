@@ -3,9 +3,9 @@ import refArray from 'ref-array-di'
 import refStruct from 'ref-struct-di'
 
 const Struct = refStruct(ref)
-const Array = refArray(ref)
+const ArrayType = refArray(ref)
 
-export const ByteBufferArray = Array(ref.types.uint8)
+export const ByteBufferArray = ArrayType(ref.types.uint8)
 
 export const ByteBuffer = Struct({
   len: ref.types.int64,

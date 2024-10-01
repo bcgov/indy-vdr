@@ -7,6 +7,10 @@ const config: Config.InitialOptions = {
     '^@hyperledger/indy-vdr-shared$': '<rootDir>/../indy-vdr-shared/src',
     '^@hyperledger/indy-vdr-nodejs$': '<rootDir>/src',
   },
+  testEnvironment: 'node',
+  transform: {
+    '^.+.tsx?$': ['ts-jest', {}],
+  },
 }
 
 export default config

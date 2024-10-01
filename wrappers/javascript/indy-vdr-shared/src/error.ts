@@ -19,9 +19,13 @@ export class IndyVdrError extends Error {
   }
 }
 
-export function handleInvalidNullResponse<T extends null | unknown>(response: T): Exclude<T, null> {
+export function handleInvalidNullResponse<T extends null | unknown>(
+  response: T,
+): Exclude<T, null> {
   if (response === null) {
-    throw IndyVdrError.customError({ message: 'Invalid response. Expected value but received null pointer' })
+    throw IndyVdrError.customError({
+      message: 'Invalid response. Expected value but received null pointer',
+    })
   }
 
   return response as Exclude<T, null>

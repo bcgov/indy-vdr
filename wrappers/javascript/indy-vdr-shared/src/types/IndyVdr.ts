@@ -1,13 +1,3 @@
-import type { PrepareTxnAuthorAgreementAcceptanceOptions } from './builderTypes'
-import type {
-  PoolHandle,
-  PoolStatus,
-  PoolSubmitActionOptions,
-  PoolSubmitRequestOptions,
-  RequestHandle,
-  Transactions,
-  Verifiers,
-} from './types'
 import type {
   AcceptanceMechanismsRequestOptions,
   AttribRequestOptions,
@@ -38,6 +28,16 @@ import type {
   RequestSetSignatureOptions,
   RequestSetTxnAuthorAgreementAcceptanceOptions,
 } from '../indyVdr'
+import type { PrepareTxnAuthorAgreementAcceptanceOptions } from './builderTypes'
+import type {
+  PoolHandle,
+  PoolStatus,
+  PoolSubmitActionOptions,
+  PoolSubmitRequestOptions,
+  RequestHandle,
+  Transactions,
+  Verifiers,
+} from './types'
 
 // TODO: proper documentation
 export interface IndyVdr {
@@ -49,7 +49,11 @@ export interface IndyVdr {
 
   setCacheDirectory(options: { path: string }): void
 
-  setLedgerTxnCache(options: { capacity: number; expiry_offset_ms: number; path?: string }): void
+  setLedgerTxnCache(options: {
+    capacity: number
+    expiry_offset_ms: number
+    path?: string
+  }): void
 
   setDefaultLogger(): void
 
@@ -57,9 +61,13 @@ export interface IndyVdr {
 
   setSocksProxy(options: { socksProxy: string }): void
 
-  buildAcceptanceMechanismsRequest(options: AcceptanceMechanismsRequestOptions): number
+  buildAcceptanceMechanismsRequest(
+    options: AcceptanceMechanismsRequestOptions,
+  ): number
 
-  buildGetAcceptanceMechanismsRequest(options: GetAcceptanceMechanismsRequestOptions): number
+  buildGetAcceptanceMechanismsRequest(
+    options: GetAcceptanceMechanismsRequestOptions,
+  ): number
 
   buildAttribRequest(options: AttribRequestOptions): number
 
@@ -69,23 +77,33 @@ export interface IndyVdr {
 
   buildGetCredDefRequest(options: GetCredentialDefinitionRequestOptions): number
 
-  buildGetRevocRegDefRequest(options: GetRevocationRegistryDefinitionRequestOptions): number
+  buildGetRevocRegDefRequest(
+    options: GetRevocationRegistryDefinitionRequestOptions,
+  ): number
 
   buildGetRevocRegRequest(options: GetRevocationRegistryRequestOptions): number
 
-  buildGetRevocRegDeltaRequest(options: GetRevocationRegistryDeltaRequestOptions): number
+  buildGetRevocRegDeltaRequest(
+    options: GetRevocationRegistryDeltaRequestOptions,
+  ): number
 
-  buildRevocRegDefRequest(options: RevocationRegistryDefinitionRequestOptions): number
+  buildRevocRegDefRequest(
+    options: RevocationRegistryDefinitionRequestOptions,
+  ): number
 
   buildCustomRequest(options: CustomRequestOptions): number
 
-  buildDisableAllTxnAuthorAgreementsRequest(options: DisableAllTransactionAuthorAgreementsRequestOptions): number
+  buildDisableAllTxnAuthorAgreementsRequest(
+    options: DisableAllTransactionAuthorAgreementsRequestOptions,
+  ): number
 
   buildGetNymRequest(options: GetNymRequestOptions): number
 
   buildGetSchemaRequest(options: GetSchemaRequestOptions): number
 
-  buildGetTxnAuthorAgreementRequest(options: GetTransactionAuthorAgreementRequestOptions): number
+  buildGetTxnAuthorAgreementRequest(
+    options: GetTransactionAuthorAgreementRequestOptions,
+  ): number
 
   buildGetTxnRequest(options: GetTransactionRequestOptions): number
 
@@ -93,11 +111,15 @@ export interface IndyVdr {
 
   buildNymRequest(options: NymRequestOptions): number
 
-  buildRevocRegEntryRequest(options: RevocationRegistryEntryRequestOptions): number
+  buildRevocRegEntryRequest(
+    options: RevocationRegistryEntryRequestOptions,
+  ): number
 
   buildSchemaRequest(options: SchemaRequestOptions): number
 
-  buildTxnAuthorAgreementRequest(options: TransactionAuthorAgreementRequestOptions): number
+  buildTxnAuthorAgreementRequest(
+    options: TransactionAuthorAgreementRequestOptions,
+  ): number
 
   poolCreate(options: PoolCreateOptions): number
 
@@ -105,17 +127,25 @@ export interface IndyVdr {
 
   poolGetStatus(options: { poolHandle: PoolHandle }): Promise<PoolStatus>
 
-  poolGetTransactions(options: { poolHandle: PoolHandle }): Promise<Transactions>
+  poolGetTransactions(options: {
+    poolHandle: PoolHandle
+  }): Promise<Transactions>
 
   poolGetVerifiers(options: { poolHandle: PoolHandle }): Promise<Verifiers>
 
-  poolSubmitAction<T extends Record<string, unknown>>(options: PoolSubmitActionOptions): Promise<T>
+  poolSubmitAction<T extends Record<string, unknown>>(
+    options: PoolSubmitActionOptions,
+  ): Promise<T>
 
-  poolSubmitRequest<T extends Record<string, unknown>>(options: PoolSubmitRequestOptions): Promise<T>
+  poolSubmitRequest<T extends Record<string, unknown>>(
+    options: PoolSubmitRequestOptions,
+  ): Promise<T>
 
   poolClose(options: { poolHandle: number }): void
 
-  prepareTxnAuthorAgreementAcceptance(options: PrepareTxnAuthorAgreementAcceptanceOptions): string
+  prepareTxnAuthorAgreementAcceptance(
+    options: PrepareTxnAuthorAgreementAcceptanceOptions,
+  ): string
 
   requestFree(options: { requestHandle: number }): void
 
@@ -123,13 +153,21 @@ export interface IndyVdr {
 
   requestGetSignatureInput(options: { requestHandle: number }): string
 
-  requestSetEndorser(options: RequestSetEndorserOptions & { requestHandle: RequestHandle }): void
+  requestSetEndorser(
+    options: RequestSetEndorserOptions & { requestHandle: RequestHandle },
+  ): void
 
-  requestSetMultiSignature(options: RequestSetMultiSignatureOptions & { requestHandle: RequestHandle }): void
+  requestSetMultiSignature(
+    options: RequestSetMultiSignatureOptions & { requestHandle: RequestHandle },
+  ): void
 
-  requestSetSignature(options: RequestSetSignatureOptions & { requestHandle: RequestHandle }): void
+  requestSetSignature(
+    options: RequestSetSignatureOptions & { requestHandle: RequestHandle },
+  ): void
 
   requestSetTxnAuthorAgreementAcceptance(
-    options: RequestSetTxnAuthorAgreementAcceptanceOptions & { requestHandle: RequestHandle }
+    options: RequestSetTxnAuthorAgreementAcceptanceOptions & {
+      requestHandle: RequestHandle
+    },
   ): void
 }

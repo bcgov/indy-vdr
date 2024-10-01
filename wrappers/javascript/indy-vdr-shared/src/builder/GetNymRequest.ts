@@ -1,6 +1,10 @@
-import type { GetRequestResponse, GetRequestResultFoundBase, GetRequestResultNotFoundBase } from '../types'
+import type {
+  GetRequestResponse,
+  GetRequestResultFoundBase,
+  GetRequestResultNotFoundBase,
+} from '../types'
 
-import { indyVdr, IndyVdrRequest } from '../indyVdr'
+import { IndyVdrRequest, indyVdr } from '../indyVdr'
 
 export type GetNymRequestOptions = {
   submitterDid?: string
@@ -23,7 +27,10 @@ interface GetNymNotFoundResult extends GetRequestResultNotFoundBase {
   dest: string
 }
 
-export type GetNymResponse = GetRequestResponse<GetNymFoundResult, GetNymNotFoundResult>
+export type GetNymResponse = GetRequestResponse<
+  GetNymFoundResult,
+  GetNymNotFoundResult
+>
 
 export class GetNymRequest extends IndyVdrRequest<GetNymResponse> {
   public constructor(options: GetNymRequestOptions) {

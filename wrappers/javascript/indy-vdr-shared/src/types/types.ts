@@ -80,7 +80,9 @@ export type WriteRequestResultTxnBase = {
   }
 }
 
-export type WriteRequestResponse<WriteRequestResultTxn extends WriteRequestResultTxnBase> = {
+export type WriteRequestResponse<
+  WriteRequestResultTxn extends WriteRequestResultTxnBase,
+> = {
   op: 'REPLY'
   result: {
     rootHash: string
@@ -147,7 +149,7 @@ export type GetRequestResultFoundBase = {
 
 export type GetRequestResponse<
   FoundResult extends GetRequestResultFoundBase,
-  NotFoundResult extends GetRequestResultNotFoundBase
+  NotFoundResult extends GetRequestResultNotFoundBase,
 > = {
   op: 'REPLY'
   result: FoundResult | NotFoundResult

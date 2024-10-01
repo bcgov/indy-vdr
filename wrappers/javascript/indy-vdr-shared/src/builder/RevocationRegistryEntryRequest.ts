@@ -1,6 +1,6 @@
-import type { WriteRequestResultTxnBase, WriteRequestResponse } from '../types'
+import type { WriteRequestResponse, WriteRequestResultTxnBase } from '../types'
 
-import { indyVdr, IndyVdrRequest } from '../indyVdr'
+import { IndyVdrRequest, indyVdr } from '../indyVdr'
 
 type ClRevocationRegistryDelta = {
   prevAccum?: string
@@ -28,7 +28,8 @@ interface RevocationRegistryEntryResultTxn extends WriteRequestResultTxnBase {
   }
 }
 
-export type RevocationRegistryEntryResponse = WriteRequestResponse<RevocationRegistryEntryResultTxn>
+export type RevocationRegistryEntryResponse =
+  WriteRequestResponse<RevocationRegistryEntryResultTxn>
 
 export class RevocationRegistryEntryRequest extends IndyVdrRequest<RevocationRegistryEntryResponse> {
   public constructor(options: RevocationRegistryEntryRequestOptions) {

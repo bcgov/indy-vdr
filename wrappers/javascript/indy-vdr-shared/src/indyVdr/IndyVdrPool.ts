@@ -1,5 +1,5 @@
-import type { IndyVdrRequest, RequestResponseType } from './IndyVdrRequest'
 import type { PoolStatus, Transactions, Verifiers } from '../types'
+import type { IndyVdrRequest, RequestResponseType } from './IndyVdrRequest'
 
 import { indyVdr } from './indyVdr'
 
@@ -38,17 +38,23 @@ export class IndyVdrPool {
   }
 
   public close(): void {
-    return indyVdr.poolClose({ poolHandle: this.handle })
+    indyVdr.poolClose({ poolHandle: this.handle })
   }
 
   public async submitAction<Request extends IndyVdrRequest>(
     request: Request,
-    options: SubmitActionOptions = {}
+    options: SubmitActionOptions = {},
   ): Promise<RequestResponseType<Request>> {
-    return indyVdr.poolSubmitAction({ poolHandle: this.handle, requestHandle: request.handle, ...options })
+    return indyVdr.poolSubmitAction({
+      poolHandle: this.handle,
+      requestHandle: request.handle,
+      ...options,
+    })
   }
 
-  public async submitRequest<Request extends IndyVdrRequest>(request: Request): Promise<RequestResponseType<Request>> {
+  public async submitRequest<Request extends IndyVdrRequest>(
+    request: Request,
+  ): Promise<RequestResponseType<Request>> {
     return indyVdr.poolSubmitRequest({
       poolHandle: this.handle,
       requestHandle: request.handle,

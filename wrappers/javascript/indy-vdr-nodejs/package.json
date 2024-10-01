@@ -1,6 +1,6 @@
 {
   "name": "@hyperledger/indy-vdr-nodejs",
-  "version": "0.2.0-dev.6",
+  "version": "0.3.0-dev.0",
   "license": "Apache-2.0",
   "description": "Nodejs wrapper for Indy Vdr",
   "source": "src/index",
@@ -15,33 +15,28 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "build",
-    "scripts"
-  ],
+  "files": ["build", "scripts"],
   "scripts": {
-    "build": "yarn clean && yarn compile",
+    "build": "pnpm clean && pnpm compile",
     "clean": "rimraf -rf ./build",
     "compile": "tsc -p tsconfig.build.json",
-    "test": "jest",
-    "install": "node scripts/install.js"
+    "install": "node scripts/install.js",
+    "test": "jest"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9",
-    "@babel/runtime": "^7.12.5",
-    "@types/jest": "^27.4.1",
-    "@types/node": "^17.0.26",
+    "@jest/types": "^29.6.3",
+    "@types/jest": "^29.5.13",
+    "@types/node": "^20.14.2",
     "@types/ref-struct-di": "^1.1.6",
-    "babel-plugin-module-resolver": "^4.0.0",
-    "jest": "^28.0.2",
-    "prettier": "2.6.2",
-    "ts-node": "^10.7.0",
-    "typescript": "~4.9.4"
+    "jest": "^29.7.0",
+    "rimraf": "^5.0.7",
+    "ts-jest": "^29.2.5",
+    "typescript": "~5.4.5"
   },
   "dependencies": {
     "@2060.io/ffi-napi": "4.0.9",
     "@2060.io/ref-napi": "3.0.6",
-    "@hyperledger/indy-vdr-shared": "0.2.0-dev.6",
+    "@hyperledger/indy-vdr-shared": "workspace:*",
     "@mapbox/node-pre-gyp": "^1.0.10",
     "@types/ref-array-di": "^1.2.8",
     "ref-array-di": "^1.2.2",
@@ -50,7 +45,7 @@
   "binary": {
     "module_name": "indy_vdr",
     "module_path": "native",
-    "remote_path": "v0.4.0",
+    "remote_path": "v0.4.3",
     "host": "https://github.com/hyperledger/indy-vdr/releases/download/",
     "package_name": "library-{platform}-{arch}.tar.gz"
   },

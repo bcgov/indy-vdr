@@ -1,6 +1,6 @@
 import type { WriteRequestResponse, WriteRequestResultTxnBase } from '../types'
 
-import { indyVdr, IndyVdrRequest } from '../indyVdr'
+import { IndyVdrRequest, indyVdr } from '../indyVdr'
 
 export type CredentialDefinitionRequestOptions = {
   submitterDid: string
@@ -31,7 +31,8 @@ interface CredentialDefinitionResultTxn extends WriteRequestResultTxnBase {
   }
 }
 
-export type CredentialDefinitionResponse = WriteRequestResponse<CredentialDefinitionResultTxn>
+export type CredentialDefinitionResponse =
+  WriteRequestResponse<CredentialDefinitionResultTxn>
 
 export class CredentialDefinitionRequest extends IndyVdrRequest {
   public constructor(options: CredentialDefinitionRequestOptions) {

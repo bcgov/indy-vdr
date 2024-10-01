@@ -1,6 +1,6 @@
-import type { WriteRequestResultTxnBase, WriteRequestResponse } from '../types'
+import type { WriteRequestResponse, WriteRequestResultTxnBase } from '../types'
 
-import { indyVdr, IndyVdrRequest } from '../indyVdr'
+import { IndyVdrRequest, indyVdr } from '../indyVdr'
 
 export type NymRequestOptions = {
   submitterDid: string

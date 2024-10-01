@@ -1,4 +1,4 @@
-import { indyVdr, IndyVdrRequest } from '../indyVdr'
+import { IndyVdrRequest, indyVdr } from '../indyVdr'
 
 export type GetValidatorInfoActionOptions = {
   submitterDid: string

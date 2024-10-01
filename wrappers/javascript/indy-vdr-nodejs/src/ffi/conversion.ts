@@ -1,4 +1,4 @@
-import { ByteBufferArray, ByteBuffer } from './structures'
+import { ByteBuffer, ByteBufferArray } from './structures'
 
 export const uint8ArrayToByteBuffer = (typedArray: Buffer) => {
   const len = typedArray.length

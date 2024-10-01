@@ -1,5 +1,5 @@
-import type { Callback, CallbackWithResponse, ReturnObject } from './serialize'
 import type { Transactions } from '@hyperledger/indy-vdr-shared'
+import type { Callback, CallbackWithResponse, ReturnObject } from './serialize'
 
 export type PoolHandle = number
 export type RequestHandle = number
@@ -13,7 +13,11 @@ export interface NativeBindings {
 
   setCacheDirectory(options: { path: string }): ReturnObject<never>
 
-  setLedgerTxnCache(options: { capacity: number; expiry_offset_ms: number; path?: string }): ReturnObject<never>
+  setLedgerTxnCache(options: {
+    capacity: number
+    expiry_offset_ms: number
+    path?: string
+  }): ReturnObject<never>
 
   setDefaultLogger(options: Record<string, never>): ReturnObject<never>
 
@@ -52,7 +56,10 @@ export interface NativeBindings {
     timestamp?: number
   }): ReturnObject<RequestHandle>
 
-  buildCredDefRequest(options: { submitterDid: string; credentialDefinition: string }): ReturnObject<RequestHandle>
+  buildCredDefRequest(options: {
+    submitterDid: string
+    credentialDefinition: string
+  }): ReturnObject<RequestHandle>
 
   buildGetCredDefRequest(options: {
     submitterDid?: string
@@ -82,24 +89,41 @@ export interface NativeBindings {
     revocationRegistryDefinitionV1: string
   }): ReturnObject<RequestHandle>
 
-  buildCustomRequest(options: { customRequest: string }): ReturnObject<RequestHandle>
+  buildCustomRequest(options: {
+    customRequest: string
+  }): ReturnObject<RequestHandle>
 
-  buildDisableAllTxnAuthorAgreementsRequest(options: { submitterDid: string }): ReturnObject<RequestHandle>
+  buildDisableAllTxnAuthorAgreementsRequest(options: {
+    submitterDid: string
+  }): ReturnObject<RequestHandle>
 
   buildGetNymRequest(options: {
     submitterDid?: string
     dest: string
     didDocContent?: string
     version?: number
+    seqNo?: number
   }): ReturnObject<RequestHandle>
 
-  buildGetSchemaRequest(options: { submitterDid?: string; schemaId: string }): ReturnObject<RequestHandle>
+  buildGetSchemaRequest(options: {
+    submitterDid?: string
+    schemaId: string
+  }): ReturnObject<RequestHandle>
 
-  buildGetTxnAuthorAgreementRequest(options: { submitterDid?: string; data?: string }): ReturnObject<RequestHandle>
+  buildGetTxnAuthorAgreementRequest(options: {
+    submitterDid?: string
+    data?: string
+  }): ReturnObject<RequestHandle>
 
-  buildGetTxnRequest(options: { submitterDid?: string; ledgerType: number; seqNo: number }): ReturnObject<RequestHandle>
+  buildGetTxnRequest(options: {
+    submitterDid?: string
+    ledgerType: number
+    seqNo: number
+  }): ReturnObject<RequestHandle>
 
-  buildGetValidatorInfoRequest(options: { submitterDid: string }): ReturnObject<RequestHandle>
+  buildGetValidatorInfoRequest(options: {
+    submitterDid: string
+  }): ReturnObject<RequestHandle>
 
   buildNymRequest(options: {
     submitterDid: string
@@ -116,7 +140,10 @@ export interface NativeBindings {
     revocationRegistryEntry: string
   }): ReturnObject<RequestHandle>
 
-  buildSchemaRequest(options: { submitterDid: string; schema: string }): ReturnObject<RequestHandle>
+  buildSchemaRequest(options: {
+    submitterDid: string
+    schema: string
+  }): ReturnObject<RequestHandle>
 
   buildTxnAuthorAgreementRequest(options: {
     submitterDid: string
@@ -128,13 +155,25 @@ export interface NativeBindings {
 
   poolCreate(options: { parameters: string }): ReturnObject<PoolHandle>
 
-  poolRefresh(options: { poolHandle: PoolHandle; cb: Callback }): ReturnObject<never>
+  poolRefresh(options: {
+    poolHandle: PoolHandle
+    cb: Callback
+  }): ReturnObject<never>
 
-  poolGetStatus(options: { poolHandle: PoolHandle; cb: CallbackWithResponse<string> }): ReturnObject<never>
+  poolGetStatus(options: {
+    poolHandle: PoolHandle
+    cb: CallbackWithResponse<string>
+  }): ReturnObject<never>
 
-  poolGetTransactions(options: { poolHandle: PoolHandle; cb: CallbackWithResponse<Transactions> }): ReturnObject<never>
+  poolGetTransactions(options: {
+    poolHandle: PoolHandle
+    cb: CallbackWithResponse<Transactions>
+  }): ReturnObject<never>
 
-  poolGetVerifiers(options: { poolHandle: PoolHandle; cb: CallbackWithResponse<string> }): ReturnObject<never>
+  poolGetVerifiers(options: {
+    poolHandle: PoolHandle
+    cb: CallbackWithResponse<string>
+  }): ReturnObject<never>
 
   poolSubmitAction(options: {
     poolHandle: PoolHandle
@@ -164,9 +203,14 @@ export interface NativeBindings {
 
   requestGetBody(options: { requestHandle: number }): ReturnObject<string>
 
-  requestGetSignatureInput(options: { requestHandle: number }): ReturnObject<string>
+  requestGetSignatureInput(options: {
+    requestHandle: number
+  }): ReturnObject<string>
 
-  requestSetEndorser(options: { requestHandle: number; endorser: string }): ReturnObject<never>
+  requestSetEndorser(options: {
+    requestHandle: number
+    endorser: string
+  }): ReturnObject<never>
 
   requestSetMultiSignature(options: {
     requestHandle: number
@@ -174,7 +218,13 @@ export interface NativeBindings {
     signature: ArrayBuffer
   }): ReturnObject<never>
 
-  requestSetSignature(options: { requestHandle: number; signature: ArrayBuffer }): ReturnObject<never>
+  requestSetSignature(options: {
+    requestHandle: number
+    signature: ArrayBuffer
+  }): ReturnObject<never>
 
-  requestSetTxnAuthorAgreementAcceptance(options: { requestHandle: number; acceptance: string }): ReturnObject<never>
+  requestSetTxnAuthorAgreementAcceptance(options: {
+    requestHandle: number
+    acceptance: string
+  }): ReturnObject<never>
 }

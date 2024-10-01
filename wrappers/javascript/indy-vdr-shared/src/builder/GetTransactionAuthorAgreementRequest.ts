@@ -1,13 +1,18 @@
-import type { GetRequestResultFoundBase, GetRequestResultNotFoundBase, GetRequestResponse } from '../types'
+import type {
+  GetRequestResponse,
+  GetRequestResultFoundBase,
+  GetRequestResultNotFoundBase,
+} from '../types'
 
-import { indyVdr, IndyVdrRequest } from '../indyVdr'
+import { IndyVdrRequest, indyVdr } from '../indyVdr'
 
 export type GetTransactionAuthorAgreementRequestOptions = {
   submitterDid?: string
   data?: string
 }
 
-interface GetTransactionAuthorAgreementFoundResult extends GetRequestResultFoundBase {
+interface GetTransactionAuthorAgreementFoundResult
+  extends GetRequestResultFoundBase {
   type: '6'
   data: {
     ratification_ts: number
@@ -17,7 +22,8 @@ interface GetTransactionAuthorAgreementFoundResult extends GetRequestResultFound
   }
 }
 
-interface GetTransactionAuthorAgreementNotFoundResult extends GetRequestResultNotFoundBase {
+interface GetTransactionAuthorAgreementNotFoundResult
+  extends GetRequestResultNotFoundBase {
   type: '6'
   data: null
 }

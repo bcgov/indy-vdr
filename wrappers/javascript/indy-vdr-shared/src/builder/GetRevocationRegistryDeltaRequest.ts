@@ -1,6 +1,10 @@
-import type { GetRequestResultFoundBase, GetRequestResultNotFoundBase, GetRequestResponse } from '../types'
+import type {
+  GetRequestResponse,
+  GetRequestResultFoundBase,
+  GetRequestResultNotFoundBase,
+} from '../types'
 
-import { indyVdr, IndyVdrRequest } from '../indyVdr'
+import { IndyVdrRequest, indyVdr } from '../indyVdr'
 
 export type GetRevocationRegistryDeltaRequestOptions = {
   submitterDid?: string
@@ -9,7 +13,8 @@ export type GetRevocationRegistryDeltaRequestOptions = {
   toTs: number
 }
 
-interface GetRevocationRegistryDeltaFoundResult extends GetRequestResultFoundBase {
+interface GetRevocationRegistryDeltaFoundResult
+  extends GetRequestResultFoundBase {
   type: '117'
   to: number
   from?: number
@@ -31,7 +36,8 @@ interface GetRevocationRegistryDeltaFoundResult extends GetRequestResultFoundBas
   revocRegDefId: string
 }
 
-interface GetRevocationRegistryDeltaNotFoundResult extends GetRequestResultNotFoundBase {
+interface GetRevocationRegistryDeltaNotFoundResult
+  extends GetRequestResultNotFoundBase {
   type: '117'
   data: null
   to: number

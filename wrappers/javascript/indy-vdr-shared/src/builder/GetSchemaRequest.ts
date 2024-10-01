@@ -1,6 +1,10 @@
-import type { GetRequestResultFoundBase, GetRequestResultNotFoundBase, GetRequestResponse } from '../types'
+import type {
+  GetRequestResponse,
+  GetRequestResultFoundBase,
+  GetRequestResultNotFoundBase,
+} from '../types'
 
-import { indyVdr, IndyVdrRequest } from '../indyVdr'
+import { IndyVdrRequest, indyVdr } from '../indyVdr'
 
 export type GetSchemaRequestOptions = {
   submitterDid?: string
@@ -27,7 +31,10 @@ interface GetSchemaNotFoundResult extends GetRequestResultNotFoundBase {
   }
 }
 
-export type GetSchemaResponse = GetRequestResponse<GetSchemaFoundResult, GetSchemaNotFoundResult>
+export type GetSchemaResponse = GetRequestResponse<
+  GetSchemaFoundResult,
+  GetSchemaNotFoundResult
+>
 
 export class GetSchemaRequest extends IndyVdrRequest<GetSchemaResponse> {
   public constructor(options: GetSchemaRequestOptions) {

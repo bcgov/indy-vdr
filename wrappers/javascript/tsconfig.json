@@ -1,6 +1,7 @@
 {
   "extends": "./tsconfig.build.json",
   "compilerOptions": {
+    "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@hyperledger/indy-vdr-nodejs": ["indy-vdr-nodejs/src"],

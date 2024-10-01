@@ -9,7 +9,7 @@ This library requires (and has been tested extensively with) Node.js version `18
 ## Installation
 
 ```sh
-yarn add @hyperledger/indy-vdr-nodejs
+pnpm add @hyperledger/indy-vdr-nodejs
 ```
 
 ## Usage
@@ -47,7 +47,17 @@ cd wrappers/javascript
 
 docker exec $(docker ps -aqf "ancestor=test_pool") cat /var/lib/indy/sandbox/pool_transactions_genesis >> genesis.txn
 
-yarn test:local-build
+pnpm test:local
 ```
 
 > **Note**: If you want to use this library in a cross-platform environment you need to import methods from the `@hyperledger/indy-vdr-shared` package instead. This is a platform independent package that allows to register the native bindings. The `@hyperledger/indy-vdr-nodejs` package uses this package under the hood. See the [Indy VDR Shared README](https://github.com/hyperledger/indy-vdr/tree/main/wrappers/javascript/indy-vdr-shared/README.md) for documentation on how to use this package.
+
+## Version Compatibility
+
+The JavaScript wrapper is versioned independently from the native bindings. The following table shows the compatibility between the different versions:
+
+| Indy VDR      | JavaScript Wrapper |
+| ------------- | ------------------ |
+| v0.4.0-dev.16 | v0.1.0             |
+| v0.4.1        | v0.2.x             |
+| v0.4.3        | v0.3.0             |
