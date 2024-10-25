@@ -6,7 +6,7 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-reqwest = { version = "0.11.17", default-features = false, features = ["json"] }
+reqwest = { version = "0.12.7", default-features = false, features = ["json"] }
 indy-vdr = { path = "../libindy_vdr" }
 serde_json = "1.0.96"
 url = "2.3.1"
