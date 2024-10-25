@@ -24,7 +24,7 @@ indy-vdr = { path = "../libindy_vdr", default-features = false, features = [
     "log",
 ] }
 git2 = "0.18"
-hyper = { version = "0.14", features = ["http1", "http2", "server"] }
+hyper = { version = "1.4", features = ["http1", "http2", "server"] }
 hyper-tls = { version = "0.5", optional = true }
 log = "0.4.8"
 percent-encoding = "2"
