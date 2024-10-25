@@ -1,6 +1,6 @@
 # syntax = docker/dockerfile:1.0-experimental
 
-FROM rust:1.41-slim as builder
+FROM rust:1.81-slim as builder
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
